@@ -119,7 +119,7 @@ else:
     s = 0
     for i in range(1, n+1):
         s += 1 / i
-    print("Сумма S для числа {n} равна {sum:10.3f}".format(n=n, sum=s))
+    print("Сумма S для числа {n} равна {sum:10.4f}".format(n=n, sum=s))
 
 
 # Задание №14
