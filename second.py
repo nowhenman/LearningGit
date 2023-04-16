@@ -125,9 +125,8 @@ else:
 # Задание №14
 # С клавиатуры вводится число n. Узнать, является ли n факториалом какого-либо числа? Если да, то вывести это число.
 from math import factorial
-n = int(input("enter your number: "))
-s = 0
-i = 0
+n = int(input("Enter your number: "))
+s, i = 0, 0
 while s <= n:
     s = factorial(i)
     if s == n:
@@ -140,3 +139,16 @@ if s > n:
 
 # Задание №15
 # С клавиатуры вводится целое число. Вывести звездочками последовательность Фибоначчи (считаем «с единицы»).
+def fib(number):
+    prev = 0
+    curr = 1
+    next_v = 1
+    for i in range(1, number+1):
+        print(next_v * "*", str(next_v))
+        prev = curr
+        curr = next_v
+        next_v = prev + curr
+
+
+user = int(input("Enter the number of iterationbs: "))
+fib(user)
