@@ -77,8 +77,12 @@ f_dig, s_dig = int(victim[0]), int(victim[1])
 print("The sum is: %d" % (f_dig + s_dig))
 print("The multipication is: %d" % (f_dig * s_dig))
 
-#                                                                                                                       Задание №9.
+# Задание №9 -- работает
 # Найти сумму и произведение цифр трехзначного числа, которое вводит пользователь.
+three_d = str(input("Your three-digit number: "))
+f_dig, s_dig, t_dig = int(three_d[0]), int(three_d[1]), int(three_d[2])
+print("The sum is: {sum}".format(sum=(f_dig + s_dig + t_dig)))
+print("The multipication is: {mul}".format(mul=(f_dig * s_dig * t_dig)))
 
 # Задание №10 -- работает (оба варианта)
 # Ввести с клавиатуры вещественное число (с плавающей точкой).
