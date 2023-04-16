@@ -124,6 +124,19 @@ else:
 
 # Задание №14
 # С клавиатуры вводится число n. Узнать, является ли n факториалом какого-либо числа? Если да, то вывести это число.
+from math import factorial
+n = int(input("enter your number: "))
+s = 0
+i = 0
+while s <= n:
+    s = factorial(i)
+    if s == n:
+        print("{input} is a factorial of {num}".format(input=n, num=i))
+        break
+    i += 1
+if s > n:
+    print("Apparently, {input} is not a factorial of any number".format(input=n))
+
 
 # Задание №15
 # С клавиатуры вводится целое число. Вывести звездочками последовательность Фибоначчи (считаем «с единицы»).
