@@ -248,9 +248,10 @@ zoo = {}
 for j in range(species):
     s = input("Вид и количество: ").split()
     if s[0] in zoo:
-        if input("Данный вид уже был введен! Хотите изменить количество особей? Y/N \n") == ('N' or 'n'):
+        change = input("Данный вид уже был введен! Хотите изменить количество особей? Y/N \n")
+        if change == 'N' or change == 'n':
             pass
-        elif input("Данный вид уже был введен! Хотите изменить количество особей? Y/N \n") == ('Y' or 'y'):
+        elif change == 'Y' or change == 'y':
             zoo[s[0]] = int(s[1])
             pass
         else:
@@ -258,7 +259,6 @@ for j in range(species):
             pass
     else:
         zoo[s[0]] = int(s[1])
-        # также теряем
 print(zoo)
 
 # Задание 18 -- работает
