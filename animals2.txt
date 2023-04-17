@@ -1,0 +1,521 @@
+Canidae 446
+Felidae 55
+Cat 31
+Cattle 203
+Dog 306
+Donkey 317
+Goat 298
+Guinea pig 349
+Horse 271
+Pig 116
+Rabbit 200
+Fancy rat varieties 262
+laboratory rat strains 337
+Sheep breeds 186
+Water buffalo breeds 23
+Chicken breeds 232
+Duck breeds 384
+Goose breeds 403
+Pigeon breeds 23
+Turkey breeds 478
+Aardvark 167
+Aardwolf 168
+African buffalo 276
+African elephant 496
+African leopard 368
+Albatross 247
+Alligator 52
+Alpaca 183
+American buffalo (bison) 58
+American robin 356
+Amphibian 79
+list 62
+Anaconda 345
+Angelfish 260
+Anglerfish 102
+Ant 363
+Anteater 249
+Antelope 485
+Antlion 419
+Ape 196
+Aphid 309
+Arabian leopard 283
+Arctic Fox 145
+Arctic Wolf 29
+Armadillo 306
+Arrow crab 122
+Asp 107
+Ass (donkey) 258
+Baboon 91
+Badger 121
+Bald eagle 224
+Bandicoot 469
+Barnacle 297
+Barracuda 322
+Basilisk 228
+Bass 197
+Bat 469
+Beaked whale 415
+Bear 107
+list 255
+Beaver 382
+Bedbug 238
+Bee 428
+Beetle 241
+Bird 319
+list 219
+Bison 458
+Blackbird 175
+Black panther 94
+Black widow spider 328
+Blue bird 278
+Blue jay 74
+Blue whale 128
+Boa 226
+Boar 339
+Bobcat 98
+Bobolink 326
+Bonobo 167
+Booby 381
+Box jellyfish 30
+Bovid 78
+Buffalo, African 131
+Buffalo, American (bison) 424
+Bug 320
+Butterfly 30
+Buzzard 9
+Camel 338
+Canid 425
+Cape buffalo 44
+Capybara 437
+Cardinal 119
+Caribou 336
+Carp 280
+Cat 160
+list 99
+Catshark 67
+Caterpillar 328
+Catfish 99
+Cattle 185
+list 443
+Centipede 32
+Cephalopod 395
+Chameleon 117
+Cheetah 247
+Chickadee 343
+Chicken 219
+list 63
+Chimpanzee 452
+Chinchilla 158
+Chipmunk 173
+Clam 482
+Clownfish 189
+Cobra 73
+Cockroach 189
+Cod 193
+Condor 166
+Constrictor 201
+Coral 202
+Cougar 339
+Cow 80
+Coyote 499
+Crab 408
+Crane 456
+Crane fly 446
+Crawdad 410
+Crayfish 62
+Cricket 54
+Crocodile 363
+Crow 241
+Cuckoo 175
+Cicada 496
+Damselfly 291
+Deer 133
+Dingo 69
+Dinosaur 260
+list 19
+Dog 30
+list 103
+Dolphin 389
+Donkey 432
+list 167
+Dormouse 320
+Dove 468
+Dragonfly 334
+Dragon 62
+Duck 170
+list 68
+Dung beetle 340
+Eagle 266
+Earthworm 127
+Earwig 21
+Echidna 499
+Eel 287
+Egret 470
+Elephant 147
+Elephant seal 184
+Elk 101
+Emu 391
+English pointer 283
+Ermine 323
+Falcon 407
+Ferret 495
+Finch 23
+Firefly 24
+Fish 495
+Flamingo 431
+Flea 188
+Fly 112
+Flyingfish 288
+Fowl 30
+Fox 307
+Frog 480
+Fruit bat 340
+Gamefowl 253
+list 138
+Galliform 119
+list 163
+Gazelle 185
+Gecko 49
+Gerbil 494
+Giant panda 372
+Giant squid 486
+Gibbon 383
+Gila monster 207
+Giraffe 220
+Goat 393
+list 81
+Goldfish 257
+Goose 31
+list 444
+Gopher 320
+Gorilla 220
+Grasshopper 472
+Great blue heron 304
+Great white shark 110
+Grizzly bear 380
+Ground shark 232
+Ground sloth 391
+Grouse 210
+Guan 473
+list 129
+Guanaco 388
+Guineafowl 205
+list 215
+Guinea pig 78
+list 210
+Gull 257
+Guppy 21
+Haddock 130
+Halibut 149
+Hammerhead shark 48
+Hamster 159
+Hare 320
+Harrier 332
+Hawk 311
+Hedgehog 261
+Hermit crab 42
+Heron 435
+Herring 411
+Hippopotamus 126
+Hookworm 47
+Hornet 459
+Horse 5
+list 88
+Hoverfly 204
+Hummingbird 443
+Humpback whale 235
+Hyena 433
+Iguana 124
+Impala 166
+Irukandji jellyfish 479
+Jackal 259
+Jaguar 186
+Jay 428
+Jellyfish 333
+Junglefowl 231
+Kangaroo 238
+Kangaroo mouse 79
+Kangaroo rat 469
+Kingfisher 24
+Kite 366
+Kiwi 259
+Koala 380
+Koi 201
+Komodo dragon 302
+Krill 298
+Ladybug 88
+Lamprey 394
+Landfowl 274
+Land snail 289
+Lark 282
+Leech 203
+Lemming 210
+Lemur 74
+Leopard 388
+Leopon 266
+Limpet 229
+Lion 450
+Lizard 140
+Llama 96
+Lobster 422
+Locust 320
+Loon 481
+Louse 406
+Lungfish 463
+Lynx 360
+Macaw 13
+Mackerel 467
+Magpie 335
+Mammal 256
+Manatee 422
+Mandrill 344
+Manta ray 170
+Marlin 306
+Marmoset 498
+Marmot 151
+Marsupial 231
+Marten 167
+Mastodon 247
+Meadowlark 302
+Meerkat 395
+Mink 494
+Minnow 409
+Mite 414
+Mockingbird 37
+Mole 375
+Mollusk 75
+Mongoose 94
+Monitor lizard 412
+Monkey 125
+Moose 353
+Mosquito 309
+Moth 365
+Mountain goat 389
+Mouse 322
+Mule 265
+Muskox 318
+Narwhal 255
+Newt 70
+New World quail 79
+Nightingale 457
+Ocelot 415
+Octopus 212
+Old World quail 255
+Opossum 183
+Orangutan 51
+Orca 309
+Ostrich 321
+Otter 240
+Owl 99
+Ox 114
+Panda 236
+Panther 421
+Panthera hybrid 120
+Parakeet 295
+Parrot 376
+Parrotfish 34
+Partridge 315
+Peacock 154
+Peafowl 421
+Pelican 140
+Penguin 445
+Perch 235
+Peregrine falcon 215
+Pheasant 439
+Pig 66
+Pigeon 148
+list 3
+Pike 338
+Pilot whale 406
+Pinniped 425
+Piranha 121
+Planarian 422
+Platypus 305
+Polar bear 179
+Pony 202
+Porcupine 475
+Porpoise 174
+Portuguese man o' war 141
+Possum 183
+Prairie dog 422
+Prawn 291
+Praying mantis 95
+Primate 249
+Ptarmigan 330
+Puffin 375
+Puma 138
+Python 85
+Quail 384
+Quelea 154
+Quokka 198
+Rabbit 457
+list 477
+Raccoon 457
+Rainbow trout 276
+Rat 114
+Rattlesnake 283
+Raven 142
+Ray (Batoidea) 288
+Ray (Rajiformes) 349
+Red panda 131
+Reindeer 463
+Reptile 470
+Rhinoceros 379
+Right whale 140
+Roadrunner 408
+Rodent 467
+Rook 376
+Rooster 103
+Roundworm 188
+Saber-toothed cat 83
+Sailfish 116
+Salamander 348
+Salmon 444
+Sawfish 257
+Scale insect 378
+Scallop 393
+Scorpion 378
+Seahorse 114
+Sea lion 481
+Sea slug 369
+Sea snail 173
+Shark 430
+list 132
+Sheep 285
+list 79
+Shrew 175
+Shrimp 43
+Silkworm 391
+Silverfish 64
+Skink 164
+Skunk 267
+Sloth 131
+Slug 46
+Smelt 411
+Snail 98
+Snake 127
+list 458
+Snipe 367
+Snow leopard 269
+Sockeye salmon 20
+Sole 153
+Sparrow 277
+Sperm whale 411
+Spider 19
+Spider monkey 250
+Spoonbill 232
+Squid 171
+Squirrel 75
+Starfish 402
+Star-nosed mole 8
+Steelhead trout 288
+Stingray 253
+Stoat 477
+Stork 499
+Sturgeon 403
+Sugar glider 402
+Swallow 292
+Swan 386
+Swift 82
+Swordfish 175
+Swordtail 79
+Tahr 467
+Takin 123
+Tapir 372
+Tarantula 277
+Tarsier 483
+Tasmanian devil 65
+Termite 407
+Tern 220
+Thrush 316
+Tick 332
+Tiger 350
+Tiger shark 418
+Tiglon 459
+Toad 432
+Tortoise 204
+Toucan 27
+Trapdoor spider 436
+Tree frog 291
+Trout 166
+Tuna 352
+Turkey 152
+list 171
+Turtle 496
+Tyrannosaurus 177
+Urial 98
+Vampire bat 394
+Vampire squid 463
+Vicuna 56
+Viper 486
+Vole 378
+Vulture 159
+Wallaby 256
+Walrus 87
+Wasp 93
+Warbler 346
+Water Boa 184
+Water buffalo 180
+Weasel 327
+Whale 55
+Whippet 437
+Whitefish 405
+Whooping crane 27
+Wildcat 362
+Wildebeest 401
+Wildfowl 187
+Wolf 38
+Wolverine 172
+Wombat 34
+Woodpecker 280
+Worm 129
+Wren 381
+Xerinae 499
+X-ray fish 110
+Yak 26
+Yellow perch 133
+Zebra 308
+Zebra finch 155
+Animals by number of neurons 165
+Animals by size 265
+Common household pests 328
+Common names of poisonous animals 340
+Alpaca 149
+Bali cattle 484
+Cat 372
+Cattle 321
+Chicken 152
+Dog 60
+Domestic Bactrian camel 359
+Domestic canary 415
+Domestic dromedary camel 304
+Domestic duck 323
+Domestic goat 124
+Domestic goose 401
+Domestic guineafowl 71
+Domestic hedgehog 97
+Domestic pig 210
+Domestic pigeon 386
+Domestic rabbit 119
+Domestic silkmoth 305
+Domestic silver fox 133
+Domestic turkey 97
+Donkey 102
+Fancy mouse 268
+Fancy rat 283
+Lab rat 98
+Ferret 489
+Gayal 368
+Goldfish 276
+Guinea pig 420
+Guppy 166
+Horse 37
+Koi 417
+Llama 88
+Ringneck dove 42
+Sheep 228
+Siamese fighting fish 427
+Society finch 232
+Yak 416
+Water buffalo 214
