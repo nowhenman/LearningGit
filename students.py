@@ -26,15 +26,16 @@ olga_free = True
 if "Ольга" in names:
     olga_free = False
 if not olga_free:
-    print("Olga found!")
+    print("Olga found!\n")
 else:
-    print("no Olga")
+    print("no Olga\n")
 # Задание 2. Протестировать пример слайд 3 (правый блок)
 # Результат отправить в гит!
 
 
 # эта функция должна быть в классе, не отдельно (понял по self и ошибкам интерпретатора)
 # вопрос -- если создать класс и в него пустить эту функцию, будет ли она работать с экземплярами других классов?
+'''
 def display(self, text):
     for i in text:
         if i == ' ':
@@ -66,6 +67,7 @@ if author.display_my_name("Oulina"):
 display("hi, my name is Oulina")
 display("Oulina")
 # эти две просто печатают текст, но возвращают соответственно False и True
+'''
 
 # Задание 1 (новое)
 # Создать класс "Студент". Описать в нем поля имя, университет и балл зачисления.
@@ -101,7 +103,8 @@ for i in the_youth:
     if i.points < 20:
         points_more_20 = False
     all_points += i.points
-print(points_more_20, all_points)
+print(f'There are\'t people with less than 20 points: {points_more_20}')
+print(f"Total number of points is: {all_points}\n")
 
 
 # Задание 2 (новое)
@@ -141,11 +144,30 @@ iPhone = Product(3, "iPhone 11 Pro Max восстановленный 512 ГБ",
 catnip = Product(4, "Кошачья мята 15 г.", 75)
 chicken_fillet = Product(5, "Филе куриной грудки свежее 500 г", 200)
 
-items1001 = [detergent, catnip, chicken_fillet]
-items1528 = [mango, detergent, iPhone]
-items1784 = [chicken_fillet]
+cart1001 = [detergent, catnip, chicken_fillet]
+cart1528 = [mango, detergent, iPhone]
+cart1784 = [chicken_fillet]
 
-order1 = Order(1001, "Ivan Ivanov", items1001)
-order2 = Order(1528, 'Marina Klyuchik', items1528)
-order3 = Order(1784, "Rakhmon Aliev", items1784)
-print(order1.amount, order2.amount, order3.amount)
+order1 = Order(1001, "Ivan Ivanov", cart1001)
+order2 = Order(1528, 'Marina Klyuchik', cart1528)
+order3 = Order(1784, "Rakhmon Aliev", cart1784)
+
+all_orders = [order1, order2, order3]
+print(order1.amount(), order2.amount(), order3.amount())  # Не забывай скобки!!!
+print()
+
+# Вывести на экран, есть ли заказы стоимостью менее 1000 рублей. Вывести общую сумму за все заказы.
+
+less_1000 = False
+for i in all_orders:
+    if i.amount() < 1000:
+        less_1000 = True
+if less_1000:
+    print("Есть заказы меньше 1000")
+else:
+    print("Все заказы больше 1000")
+
+total_amount = 0
+for i in all_orders:
+    total_amount += i.amount()
+print(f"Общая сумма за все заказы: {total_amount}")
