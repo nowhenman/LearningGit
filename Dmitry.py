@@ -23,6 +23,8 @@ a = B(3)
 Circle = 5
 
 # 0 1 2 3
+
+
 def bin_search(massiv, num):
     a, b = 0, (len(massiv)-1)
     ind = (a + b) // 2
@@ -39,16 +41,10 @@ def bin_search(massiv, num):
 orig = [1, 500, -9, 0, 55, 71]
 orig.sort()
 
-#ab = list(map(int, input("Введите список чисел: ").split()))
+# ab = list(map(int, input("Введите список чисел: ").split()))
 needed = int(input("искомое число: "))
 print(bin_search(orig, needed))
 
 # от 0 до n-1 только перестраивать диапазон индексов, а не трогать!
 # попробуй на листе бумаги!
 # тащить границы диапазона в котором (переобозначать не массив, а его индексы!)
-
-
-
-
-
-
