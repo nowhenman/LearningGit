@@ -24,10 +24,13 @@ class Person:
         self.__lname = lname
         self.__date_of_birth_t = date_of_birth
         self.__day_birth = int(date_of_birth[-2:])
+        # if self.__day_birth not in range(1, 31):
+
         self.__month_birth = int(date_of_birth[4:-2])
         self.__year_birth = int(date_of_birth[:4])
 
     __mname = 'None'
+
 
     def get_fname(self):
         return self.__fname
@@ -39,7 +42,7 @@ class Person:
         if self.__mname != 'None':
             return self.__mname
         else:
-            return "This person doesn't have a middle name"
+            return ""  # "This person doesn't have a middle name"
 
     def get_birthday(self):
         return f"{self.__day_birth} of {months[self.__month_birth]}, {self.__year_birth}"

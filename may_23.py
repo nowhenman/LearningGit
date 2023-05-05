@@ -86,7 +86,7 @@ print(parent_2.get_fname(), parent_2.get_lname(), parent_2.get_age())
 # Предусмотреть методы для создания объектов, вычисления площади, периметра и точки пересечения медиан.
 # Описать свойства для получения состояния объекта.
 
-# Задание 8.
+# Задание 8 -- при использовании по назначению работает.
 # Создайте класс Персона с методами, позволяющими вывести на экран информацию о персоне, а также определить
 # ее возраст (в текущем году). Создайте список из n персон, выведите полную информацию из базы на экран, а также
 # организуйте поиск персон, чей возраст попадает в заданный диапазон.
@@ -95,7 +95,19 @@ print(parent_2.get_fname(), parent_2.get_lname(), parent_2.get_age())
 
 from my_classes.Person import Person
 
-John = Person("John", "Smith", "19900805")
-John.set_mname("Michael")
-print(John.get_fname(), John.get_mname(), John.get_lname(), "is", John.get_age(),
-      "years old, his DoB is", John.get_birthday())
+try:
+    n = int(input("Number of people: "))
+except Exception:
+    print("This should be an integer.")
+    n = int(input("Number of people: "))
+print("Enter a person's name, surname, date of birth(yyyymmdd), separated by commas only (no whitespaces)\n"
+      "example: \"John,Smith,19810125\"(use 05 instead of 5 etc): ")
+
+list_of_ppl = []
+for i in range(n):
+    data = input("person: ")
+    d_list = data.split(",")
+    list_of_ppl.append(Person(d_list[0], d_list[1], d_list[2]))
+for person in list_of_ppl:
+    print(person.get_fname(), person.get_mname(), person.get_lname(), "is", person.get_age(),
+          "years old, the DoB is", person.get_birthday())
