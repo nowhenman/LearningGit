@@ -5,12 +5,21 @@
 class IntegerAdd:
 
     def __init__(self, int_1, int_2):
-        pass
+        self.__int_1 = int_1
+        self.__int_2 = int_2
 
     def add(self, int_1, int_2):
         return int_1 + int_2
+
+    def cons_add(self):
+        return self.__int_1 + self.__int_2
 
 # Задание 2.
 # Доработать класс методом-конструктором, в котором следует определить атрибуты экземпляра класса,
 # необходимые для сложения двух целых чисел.
 # Напишите метод, в котором бы определялась сумма двух целых чисел, переданных через конструктор.
+
+
+abc = IntegerAdd(3, -5)
+abc.add(5, 4)  # разница!
+abc.cons_add()  # разница!
