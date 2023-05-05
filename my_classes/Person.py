@@ -53,10 +53,12 @@ class Person:
     def get_age(self):
         person_birth_date = datetime.date(self.__year_birth, self.__month_birth, self.__day_birth)  # Example birth date
         person_age = (datetime.date.today() - person_birth_date).days
-        person_years = person_age // 365
+        self.__person_years = person_age // 365
         person_days = person_age % 365
-        return f"{person_years} years and {person_days} days"
+        return f"{self.__person_years} years and {person_days} days"
 
+    def get_years(self):
+        return self.__person_years
     def set_fname(self, name):
         self.__fname = name
 

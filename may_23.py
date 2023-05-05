@@ -86,10 +86,10 @@ print(parent_2.get_fname(), parent_2.get_lname(), parent_2.get_age())
 # Предусмотреть методы для создания объектов, вычисления площади, периметра и точки пересечения медиан.
 # Описать свойства для получения состояния объекта.
 
-# Задание 8 -- при использовании по назначению работает.
+# Задание 8 -- при использовании по назначению работает. Это задание заняло у меня больше 2 часов
 # Создайте класс Персона с методами, позволяющими вывести на экран информацию о персоне, а также определить
 # ее возраст (в текущем году). Создайте список из n персон, выведите полную информацию из базы на экран, а также
-# организуйте поиск персон, чей возраст попадает в заданный диапазон.
+# организуйте поиск персон, чей возраст попадает в заданный диапазон. -- ЭТО НЕ СДЕЛАЛ ЕЩЁ
 # При этом n, данные о персонах и диапазон вводятся с клавиатуры.
 # Доп. задание: Сделать проверку на корректность введенных данных.
 
@@ -101,13 +101,34 @@ except Exception:
     print("This should be an integer.")
     n = int(input("Number of people: "))
 print("Enter a person's name, surname, date of birth(yyyymmdd), separated by commas only (no whitespaces)\n"
-      "example: \"John,Smith,19810125\"(use 05 instead of 5 etc): ")
+      "Here's an example: \"John,Smith,19810125\" (use 05 instead of 5 etc): \n")
 
 list_of_ppl = []
 for i in range(n):
     data = input("person: ")
     d_list = data.split(",")
     list_of_ppl.append(Person(d_list[0], d_list[1], d_list[2]))
+print()
 for person in list_of_ppl:
     print(person.get_fname(), person.get_mname(), person.get_lname(), "is", person.get_age(),
           "years old, the DoB is", person.get_birthday())
+
+
+def age_search():
+    search = input("Please specify the needed age range separated by '-', like '1-37'\n")
+    min_age = int(search.split("-")[0])
+    max_age = int(search.split("-")[1])
+    needed = [i for i in list_of_ppl if i.get_years() in range(min_age, max_age)]
+    return needed
+
+
+good = False
+while not good:
+    answer = input("\nWould you like to find people of specific age? Y/N\n")
+    if answer == "Y" or answer == "y":
+        print(f"There are {len(age_search())} people of that age")
+        good = True
+    elif answer == "N" or answer == "n":
+        good = True
+    else:
+        print("Sorry, didn't get that. Come again?")
