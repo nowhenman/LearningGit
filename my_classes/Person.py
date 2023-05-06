@@ -11,10 +11,10 @@ Date_of_birth should be provided in yyyymmdd format only!
 """
 
 months = {
-        1: "January", 2: "February", 3: "March",
-        4: "April", 5: "May", 6: "June",
-        7: "July", 8: "August", 9: "September",
-        10: "October", 11: "November", 12: "December"
+    1: "January", 2: "February", 3: "March",
+    4: "April", 5: "May", 6: "June",
+    7: "July", 8: "August", 9: "September",
+    10: "October", 11: "November", 12: "December"
 }
 
 
@@ -30,7 +30,6 @@ class Person:
         self.__year_birth = int(date_of_birth[:4])
 
     __mname = 'None'
-
 
     def get_fname(self):
         return self.__fname
@@ -59,6 +58,7 @@ class Person:
 
     def get_years(self):
         return self.__person_years
+
     def set_fname(self, name):
         self.__fname = name
 
@@ -70,3 +70,7 @@ class Person:
 
     def set_dob(self, date_of_birth):
         self.__date_of_birth_t = date_of_birth
+
+
+p1 = Person('Ivan', 'Ivanov', '19900507')  # todo возраст протестировать
+print(p1.get_age())

@@ -5,9 +5,12 @@
 
 
 class Children:
-    __fname = ''
-    __lname = ''
-    __age = 0
+    age = 0
+
+    def __init__(self):  # todo подумать, почему в конструкторе все поля
+        self.__age = None
+        self.__lname = None
+        self.__fname = None
 
     def set_fname(self, fname):
         self.__fname = fname
@@ -26,3 +29,9 @@ class Children:
 
     def get_age(self):
         return self.__age
+
+
+ch1 = Children()
+ch1.set_fname('Test')
+print(ch1.get_fname())
+print(Children.age)

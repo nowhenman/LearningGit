@@ -5,7 +5,7 @@
 
 
 class Parent:
-    __fname = ''
+    __fname = '' # todo аналогично с Children
     __lname = ''
     __age = 0
 
