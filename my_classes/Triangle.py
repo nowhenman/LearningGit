@@ -25,11 +25,10 @@ class Triangle:
         self.__qc = 0
 
     def __str__(self):
-        return f"\nA triangle with sides: {self.__a}, {self.__b} and {self.__c} and angles {self.__ang_a}," \
-               f" {self.__ang_b} and {self.__ang_c}. \n" \
-               f"The median point is {self.get_med_point()} from sides a, b and c." \
-               f"\nIts perimeter is {self.get_per()} " \
-               f"and its square is {self.get_square()}."
+        return f"\nA triangle with sides: {self.__a}, {self.__b} and {self.__c} " \
+               f"and angles {self.__ang_a}, {self.__ang_b} and {self.__ang_c}." \
+               f"\nThe median point is {self.get_med_point()} from sides a, b and c." \
+               f"\nIts perimeter is {self.get_per()} and its square is {self.get_square()}."
 
     def set_all_sides(self, a, b, c):
         self.__c = c
