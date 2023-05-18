@@ -3,6 +3,29 @@
 # Добавить функцию, которая находит сумму значений этих переменных, и функцию
 # которая находит наибольшее значение из этих двух переменных.
 
+class TwoVar:
+    __a = None  # !!!!
+    __b = None
+
+    def displ_var_a(self):
+        return self.__a
+
+    def displ_var_b(self):
+        return self.__b
+
+    def set_var_a(self, a):
+        self.__a = a
+
+    def set_var_b(self, b):
+        self.__b = b
+
+    def add_var(self):
+        return self.__a + self.__b
+
+    def max_var(self):
+        return max(self.__a, self.__b)
+
+
 # Задание 6.
 # Создать класс с двумя переменными. Добавить конструктор с входными параметрами.
 # Добавить конструктор, инициализирующий члены класса по умолчанию.
