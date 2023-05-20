@@ -47,7 +47,7 @@ class Wallpaper(Item):
         self.__width = float(width)
         self.__length = float(length)
         self.__material = material
-        self.__design = int(design)
+        self.__design = design
 
 
 class Floor(Item):
