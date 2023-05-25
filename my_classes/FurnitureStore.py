@@ -20,6 +20,10 @@ class Item:
     def get_id(self):
         return self.__id
 
+    @property
+    def price(self):
+        return self.__price
+
 
 class Door(Item):
     def __init__(self,  make, model, price, height, width, material, finish, use):
@@ -43,7 +47,7 @@ class Window(Item):
 
 class Wallpaper(Item):
     def __init__(self, make, model, width, length, material, design, price):
-        super().__init__(make, model, price)
+        Item.__init__(self, make, model, price)
         self.__width = float(width)
         self.__length = float(length)
         self.__material = material

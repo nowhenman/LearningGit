@@ -14,3 +14,5 @@ d = Wallpaper(make='ItalDesign', model='Floral B 1107', price=1500,
               design='Обои кремового цвета с легкой текстурированной поверхностью матовые', length=3000,
               material='флизелин', width=600)
 print(d.get_id())
+
+print(c.price)
