@@ -21,6 +21,8 @@ temp_memory = 0
 # при нажатии + main_memory копируется в temp_memory, main_memory заменяется на то, что вводится, при наж. = считается
 # при нажатии * main_memory копируется в temp_memory, main_memory заменяется на то, что вводится, при наж. = считается
 # при нажатии / main_memory копируется в temp_memory, main_memory заменяется на то, что вводится, при наж. = считается
+
+# TRY EXCEPT CUSTOM EXC. ZERODIVISIONERROR!
 # при нажатии корень из 2 main_memory = main_memory ** 0.5
 # при нажатии ** 2 main_memory = main_memory ** 2
 # при нажатии C или CE main_memory = 0 и temp_memory = 0
