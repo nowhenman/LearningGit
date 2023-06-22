@@ -1,14 +1,14 @@
-from my_classes.TwoVar import TwoVar
+class Rectangle:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
 
-first = TwoVar()
+    def area(self):
+        return self.a * self.b
 
-first.set_var_a(5)
-first.set_var_b(-11)
-print(first.add_var())
-print(first.max_var())
 
-sec = TwoVar()
+rect = Rectangle(5, 6)
+print(rect.area())
 
-print(sec.add_var())
-print(sec.max_var())
-
+# 0x000002792E9B0FD0 метод
+# 0x000001765448A400 экземпляр класса

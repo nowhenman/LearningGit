@@ -11,7 +11,7 @@ c = Window(make='Rehau', model=100572, height=1500, width=1500, price=10000, lay
 print(c.get_id())
 
 d = Wallpaper(make='ItalDesign', model='Floral B 1107', price=1500,
-              design='Обои кремового цвета с легкой текстурированной поверхностью матовые', length=3000,
+              design='Обои кремового цвета с легкой текстурированной поверхностью матовые', len gth=3000,
               material='флизелин', width=600)
 print(d.get_id())
 

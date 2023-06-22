@@ -108,18 +108,15 @@ def char_6(x):
 t_age = input("Enter age: ")
 try:
     is_valid_int(t_age)
-except StupidException as se:
-    print(se)
-else:
     t_age = int(t_age)
-
-try:
     age_ok(t_age)
 except StupidException as se:
     print(se)
+    exit(0)
 else:
     age = t_age
 
+print(age)
 # физически больно видеть все эти данные напрямую
 t_login = input("Enter your login: ")
 t_password = input("Enter your password: ")
@@ -139,17 +136,11 @@ else:
     password = t_password
 
 
-# Задание 4 (задание сложное! Если будете долго сидеть, то напишите вопрос).
-# Создать статический метод (метод класса) внутри класса Registration. который принимает на вход три параметра:
-# login, password и confirmPassword. Login должен содержать только латинские буквы, цифры и знак подчеркивания.
-# Длина login должна быть меньше 20 символов. Если login не соответствует этим требованиям, необходимо выбросить
-# WrongLoginException. Password должен содержать только латинские буквы, цифры и знак подчеркивания.
-# Длина password должна быть меньше 20 символов. Также password и confirmPassword должны быть равны.
-# Если password не соответствует этим требованиям, необходимо выбросить WrongPasswordException.
-# WrongPasswordException и WrongLoginException – пользовательские (кастомные) классы исключения с конструктором,
-# который принимает сообщение исключения и передает его в конструктор класса Exception (предусмотреть вызов
-# данного исключения без сообщения). Обработка исключений проводится внутри метода. Используем multi-except block.
-# Метод возвращает True, если значения верны или False в другом случае.
+# Задание 4
+
+import Registration
+
+Registration.validity_check(input("login: "), input("password: "), input("confirm password: "))
 
 # Набор ссылок (если будут вопросы)
 # https://rollbar.com/blog/throwing-exceptions-in-python/
