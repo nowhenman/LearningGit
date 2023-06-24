@@ -1,0 +1,229 @@
+import re
+# Мы используем в регулярных выражениях префикс r (raw string) чтобы не происходило вещей типа "\\\\" для поиска одной
+# косой черты ("\\\\" = \\ в Python = \ в обычной жизни). вместо этого можно использовать r"\\" (что для Python так же
+# будет \\, т.е. просто \.
+#
+# методы re:
+#
+# re.__all__ -- непонятно
+# re.compile(pattern, flags=0) -- позволяет сохранить паттерн для многократного использования и экономии ресурсов
+# re.escape(pattern) --
+# re.findall(pattern, string, flags=0) --
+# re.finditer(pattern, string, flags=0) --
+# re.fullmatch(pattern, string, flags=0) -- checks for entire string to be a match
+# re.match(pattern, string, flags=0) -- checks for a match only at the beginning of the string
+# re.purge() --
+# re.search(pattern, string, flags=0) -- возвращает первое совпадение по паттерну из строки
+# checks for a match anywhere in the string
+# re.split(pattern, string, maxsplit=0, flags=0) --
+# re.sub(pattern, repl, string, count=0, flags=0) --
+# re.subn(pattern, repl, string, count=0, flags=0) --
+# re.template(pattern, flags) -- непонятно
+#
+# флаги
+#
+# методы функций
+#
+# спецсимволы
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#

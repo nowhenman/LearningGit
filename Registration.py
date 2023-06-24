@@ -13,7 +13,7 @@ import re
 
 
 class RegistrationException(Exception):
-    def __init__(self, message):
+    def __init__(self, message):  # todo None подумай и разберись!
         super().__init__(message)
 
 
