@@ -138,7 +138,7 @@ else:
 
 # Задание 4
 
-import Registration
+from Registration import Registration
 
 Registration.validity_check(input("login: "), input("password: "), input("confirm password: "))
 
