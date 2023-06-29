@@ -1,40 +1,17 @@
-from datetime import date
-from my_classes.TwoVar import TwoVar
 
-first = TwoVar()
-
-first.set_var_a(5)
-first.set_var_b(-11)
-print(first.add_var())
-print(first.max_var())
-
-sec = TwoVar()
-
-print(sec.add_var())
-print(sec.max_var())
-
-def age(birthdate):
-    # Get today's date object
-    today = date.today()
-
-    # A bool that represents if today's day/month precedes the birth day/month
-    one_or_zero = ((today.month, today.day) < (birthdate.month, birthdate.day))
-
-    # Calculate the difference in years from the date object's components
-    year_difference = today.year - birthdate.year
-
-    # The difference in years is not enough.
-    # To get it right, subtract 1 or 0 based on if today precedes the
-    # birthdate's month/day.
-
-    # To do this, subtract the 'one_or_zero' boolean
-    # from 'year_difference'. (This converts
-    # True to 1 and False to 0 under the hood.)
-    age = year_difference - one_or_zero
-
-    return age
+class Rectangle:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
 
 
-# Example age check:
-print(age(date(2000, 1, 1)))
+    def area(self):
+        return self.a * self.b
 
+
+rect = Rectangle(5, 6)
+print(rect.area())
+
+
+# 0x000002792E9B0FD0 метод
+# 0x000001765448A400 экземпляр класса
