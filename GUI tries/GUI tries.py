@@ -1,16 +1,22 @@
 import tkinter as tk
 
 
-def add_point(event):
+def add_point(event, symb):
     print(".")
 
 
-def clear_terminal():
+def clear_terminal(event):
+    print('clear')
     entry.delete(0, tk.END)
 
 
-def ins_terminal(x):
+def ins_terminal(event, x):
+    print('ins_terminal', x)
     entry.insert(tk.END, x)
+
+
+def make_lambda(func, *args):
+    return lambda ev: func(ev, args[0]) if len(args) > 0 else func(ev)
 
 
 main_memory = 0  # главная переменная
@@ -50,7 +56,6 @@ history = tk.Button(master=menu_bar, text="His", width=4, height=1)
 history.pack(side=tk.RIGHT)
 menu_bar.pack(fill=tk.X)
 
-
 terminal = tk.Frame(master=root)
 entry = tk.Entry(master=terminal, width=50)  # 50 symb is less than 320 px
 entry.pack()
@@ -80,18 +85,17 @@ for i in range(len(reg_buttons)):
     for k in reg_buttons[i]:
         func_list = reg_buttons[i].get(k)
         butt = tk.Button(master=buttons_pad, text=k, relief=tk.RAISED)
+        # func_to_call = func_list[0]
         if len(func_list) > 1:
-            butt.bind("<Button-1>", lambda a=func_list[1]: func_list[0](a))
+            butt.bind("<Button-1>", make_lambda(func_list[0], func_list[1]))
         else:
-            butt.bind("<Button-1>", func_list[0]())
-        butt.grid(row=i+1, column=j+1)
+            butt.bind("<Button-1>", make_lambda(func_list[0]))
+        butt.grid(row=i + 1, column=j + 1)
         j += 1
-
 
 # If you would like to make it half the size of the window, use width=root.winfo_width / 2,
 # height=winfo_height In the maximum size.
 buttons_pad.pack()
-
 
 # button1 = tk.Button(text="Нажать!", width=10, height=2)
 # button1.pack()
@@ -105,7 +109,6 @@ buttons_pad.pack()
 root.minsize(320, 500)
 root.configure(bg='azure2')
 root.mainloop()
-
 
 # максимум 16 символов в поле
 # при нажатии на 0-9 проверяем общую длину поля
