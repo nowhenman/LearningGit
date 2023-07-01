@@ -70,7 +70,7 @@ buttons_pad = tk.Frame(master=root)
 reg_buttons = [
     {"%": [add_point, 0], "CE": clear_terminal(), "C": clear_terminal(), "<": [add_point, 2]},
     {"1/x": [add_point, 0], "x^2": [add_point, 1], "x^0.5": [add_point, 2], "/": [add_point, 2]},
-    {"7": ins_terminal(7), "8": ins_terminal(8), "9": ins_terminal(7), "*": [add_point, 2]},
+    {"7": ins_terminal(7), "8": ins_terminal(8), "9": ins_terminal(9), "*": [add_point, 2]},
     {"4": ins_terminal(4), "5": ins_terminal(5), "6": ins_terminal(6), "-": [add_point, 2]},
     {"1": ins_terminal(1), "2": ins_terminal(2), "3": ins_terminal(3), "+": [add_point, 2]},
     {"+-": [add_point, 0], "0": ins_terminal(0), ",": [add_point, 2], "=": [add_point, 2]}
@@ -110,3 +110,25 @@ root.mainloop()
 # и вывод всего этого безобразия в поле
 
 # (16 символов норм, если 17 то научная) умножение сложение
+
+'''
+#reg_buttons = [
+    {"%": [add_point, 0], "CE": [clear_terminal], "C": [clear_terminal], "<": [add_point, 2]},
+    {"1/x": [add_point, 0], "x^2": [add_point, 1], "x^0.5": [add_point, 2], "/": [add_point, 2]},
+    {"7": [ins_terminal, 7], "8": [ins_terminal, 8], "9": [ins_terminal, 9], "*": [add_point, 2]},
+    {"4": [ins_terminal, 4], "5": [ins_terminal, 5], "6": [ins_terminal, 6], "-": [add_point, 2]},
+    {"1": [ins_terminal, 1], "2": [ins_terminal, 2], "3": [ins_terminal, 3], "+": [add_point, 2]},
+    {"+-": [add_point, 0], "0": [ins_terminal, 0], ",": [add_point, 2], "=": [add_point, 2]}
+]
+for i in range(len(reg_buttons)):
+    j = 0
+    for k in reg_buttons[i]:
+        func_list = reg_buttons[i].get(k)
+        butt = tk.Button(master=buttons_pad, text=k, relief=tk.RAISED)
+        if len(func_list) > 1:
+            butt.bind("<Button-1>", lambda a=func_list[1]: func_list[0](a))
+        else:
+            butt.bind("<Button-1>", func_list[0]())
+        butt.grid(row=i+1, column=j+1)
+        j += 1
+'''

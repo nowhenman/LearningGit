@@ -27,10 +27,10 @@
 # Возвращает генератор, который выдаёт все совпадения.
 
 # re.fullmatch(pattern, string, flags=0)
-# Checks for entire string to be a match.
+# Вся строка должна совпадать с паттерном.
 
 # re.match(pattern, string, flags=0)
-# Ищет только в начале Строки. С MULTILINE не работает.
+# Ищет только в начале Строки. MULTILINE ничего не меняет, видимо.
 
 # re.purge()
 # "Clear the regular expression cache", что бы это не значило.
@@ -71,10 +71,8 @@
 # Флаг локалей (только для 8-битного поиска!).
 
 # re.M = re.MULTILINE = (?m)
-# When specified, the pattern character '^' matches at the beginning of the string and at the beginning of each line
-# (immediately following each newline); and the pattern character '$' matches at the end of the string and at the end of
-# each line (immediately preceding each newline). By default, '^' matches only at the beginning of the string,
-# and '$' only at the end of the string and immediately before the newline (if any) at the end of the string.
+# С этим флагом '^' соответствует не только началу Строки, но и началу подсток (после '\n'), а '$' соответствует
+# не только концу Строки, но и конце подстрок (перед '\n').
 
 # re.NOFLAG
 # Используется для создания своих функций с флагами:
@@ -86,10 +84,9 @@
 
 # re.X = re.VERBOSE = (?x)
 # Даёт возможность визуально разбивать регулярные выражения и добавлять к ним комментарии.
-# Whitespace within the pattern is ignored, except when in a character class, or when preceded by an unescaped
-# backslash, or within tokens like '*?', '(?:' or '(?P<...>'. For example, '(? :' and '* ?' are not allowed.
-# When a line contains a '#' that is not in a character class and is not preceded by an unescaped backslash,
-# all characters from the leftmost such '#' through the end of the line are ignored.
+# Пробелы в выражении (если не в [], не '\ ' и не в случаях типа '*?', '(?:' или '(?P<...>') игнорируются.
+# Т.е.добавить пробел и сделать '(? :' или '* ?' не получится.
+# Символы после '#' и до конца строки игнорируются (кроме случаев '\#' и внутри []).
 
 # Ниже a и b равны:
 # a = re.compile(r"""\d +  # the integral part
@@ -106,14 +103,14 @@
 # if my_match:
 #     process(my_match)
 
-# Match.expand(template)
+# Match.expand(template)  #todo
 # Return the string obtained by doing backslash substitution on the template string template, as done by the sub()
 # method. Escapes such as \n are converted to the appropriate characters,
 # and numeric backreferences (\1, \2) and named backreferences (\g<1>, \g<name>) are replaced
 # by the contents of the corresponding group.
 # Unmatched groups are replaced with an empty string.
 
-# Match.group([group1, ...])
+# Match.group([group1, ...])  #todo
 # Returns one or more subgroups of the match. If there is a single argument, the result is a single string;
 # if there are multiple arguments, the result is a tuple with one item per argument.
 # Without arguments, group1 defaults to zero (the whole match is returned). If a groupN argument is zero,
@@ -156,7 +153,7 @@
 # m.group(1)                        # Returns only the last match.
 # 'c3'
 
-# Match.__getitem__(g)
+# Match.__getitem__(g)  #todo
 # То же самое, что и  m.group(g) и даёт более простой доступ к инд. группе из мэтча:
 #
 # m = re.match(r"(\w+) (\w+)", "Isaac Newton, physicist")
@@ -174,7 +171,7 @@
 # m['last_name']
 # 'Newton'
 
-# Match.groups(default=None)
+# Match.groups(default=None)  #todo
 # Return a tuple containing all the subgroups of the match, from 1 up to however many groups are in the pattern.
 # The default argument is used for groups that did not participate in the match; it defaults to None.
 #
@@ -192,7 +189,7 @@
 # m.groups('0')   # Now, the second group defaults to '0'.
 # ('24', '0')
 
-# Match.groupdict(default=None)
+# Match.groupdict(default=None)  #todo
 # Return a dictionary containing all the named subgroups of the match, keyed by the subgroup name.
 # The default argument is used for groups that did not participate in the match; it defaults to None. For example:
 #
@@ -200,58 +197,53 @@
 # m.groupdict()
 # {'first_name': 'Malcolm', 'last_name': 'Reynolds'}
 
-# Match.start([group])
+# Match.start([group])  #todo
 # Match.end([group])
 # Return the indices of the start and end of the substring matched by group; group defaults to zero
 # (meaning the whole matched substring). Return -1 if group exists but did not contribute to the match.
 # For a match object m, and a group g that did contribute to the match, the substring matched by group g
-# (equivalent to m.group(g)) is
-#
-# m.string[m.start(g):m.end(g)]
+# (equivalent to m.group(g)) is m.string[m.start(g):m.end(g)]
 #
 # Note that m.start(group) will equal m.end(group) if group matched a null string. For example,
 # after m = re.search('b(c?)', 'cba'), m.start(0) is 1, m.end(0) is 2, m.start(1) and m.end(1) are both 2,
 # and m.start(2) raises an IndexError exception.
 #
-# An example that will remove remove_this from email addresses:
+# Пример того, как убрать строку 'remove_this' из email адреса:
 # email = "tony@tiremove_thisger.net"
-#
 # m = re.search("remove_this", email)
-#
 # email[:m.start()] + email[m.end():]
 # 'tony@tiger.net'
 
-# Match.span([group])
-#
+# Match.span([group])  #todo
 # For a match m, return the 2-tuple (m.start(group), m.end(group)). Note that if group did not contribute to the match,
 # this is (-1, -1). group defaults to zero, the entire match.
 
-# Match.pos
+# Match.pos  #todo
 # The value of pos which was passed to the search() or match() method of a regex object.
 # This is the index into the string at which the RE engine started looking for a match.
 
-# Match.endpos
+# Match.endpos  #todo
 # The value of endpos which was passed to the search() or match() method of a regex object.
 # This is the index into the string beyond which the RE engine will not go.
 
-# Match.lastindex
+# Match.lastindex  #todo
 # The integer index of the last matched capturing group, or None if no group was matched at all.
 # For example, the expressions (a)b, ((a)(b)), and ((ab)) will have lastindex == 1 if applied to the string 'ab',
 # while the expression (a)(b) will have lastindex == 2, if applied to the same string.
 
-# Match.lastgroup
+# Match.lastgroup  #todo
 # The name of the last matched capturing group, or None if the group didn’t have a name, or if no group was matched
 # at all.
 
-# Match.re
+# Match.re  #todo
 # The regular expression object whose match() or search() method produced this match instance.
 
-# Match.string
+# Match.string  #todo
 # The string passed to match() or search().
 #
 # Added support of copy.copy() and copy.deepcopy(). Match objects are considered atomic.
 
-# Pattern.search(string[, pos[, endpos]])
+# Pattern.search(string[, pos[, endpos]])  #todo
 # Scan through string looking for the first location where this regular expression produces a match, and return
 # a corresponding match object. Return None if no position in the string matches the pattern; note that
 # this is different from finding a zero-length match at some point in the string.
@@ -273,7 +265,7 @@
 #
 # pattern.search("dog", 1)  # No match; search doesn't include the "d"
 
-# Pattern.match(string[, pos[, endpos]])
+# Pattern.match(string[, pos[, endpos]])  #todo
 # If zero or more characters at the beginning of string match this regular expression, return a corresponding
 # match object. Return None if the string does not match the pattern; note that this is different from a
 # zero-length match.
@@ -281,15 +273,13 @@
 # The optional pos and endpos parameters have the same meaning as for the search() method.
 #
 # pattern = re.compile("o")
-#
 # pattern.match("dog")      # No match as "o" is not at the start of "dog".
-#
 # pattern.match("dog", 1)   # Match as "o" is the 2nd character of "dog".
 # <re.Match object; span=(1, 2), match='o'>
 #
 # If you want to locate a match anywhere in string, use search() instead (see also search() vs. match()).
 
-# Pattern.fullmatch(string[, pos[, endpos]])
+# Pattern.fullmatch(string[, pos[, endpos]])  #todo
 # If the whole string matches this regular expression, return a corresponding match object.
 # Return None if the string does not match the pattern; note that this is different from a zero-length match.
 # The optional pos and endpos parameters have the same meaning as for the search() method.
@@ -301,54 +291,54 @@
 # pattern.fullmatch("doggie", 1, 3)   # Matches within given limits.
 # <re.Match object; span=(1, 3), match='og'>
 
-# Pattern.split(string, maxsplit=0)
+# Pattern.split(string, maxsplit=0)  #todo
 # Identical to the split() function, using the compiled pattern.
 
-# Pattern.findall(string[, pos[, endpos]])
+# Pattern.findall(string[, pos[, endpos]])  #todo
 # Similar to the findall() function, using the compiled pattern, but also accepts optional pos and endpos parameters
 # that limit the search region like for search().
 
-# Pattern.finditer(string[, pos[, endpos]])
+# Pattern.finditer(string[, pos[, endpos]])  #todo
 # Similar to the finditer() function, using the compiled pattern, but also accepts optional pos and endpos parameters
 # that limit the search region like for search().
 
-# Pattern.sub(repl, string, count=0)
+# Pattern.sub(repl, string, count=0)  #todo
 # Identical to the sub() function, using the compiled pattern.
 
-# Pattern.subn(repl, string, count=0)
+# Pattern.subn(repl, string, count=0)  #todo
 # Identical to the subn() function, using the compiled pattern.
 
-# Pattern.flags
+# Pattern.flags  #todo
 # The regex matching flags. This is a combination of the flags given to compile(), any (?...) inline flags
 # in the pattern, and implicit flags such as UNICODE if the pattern is a Unicode string.
 
-# Pattern.groups
+# Pattern.groups  #todo
 # The number of capturing groups in the pattern.
 
-# Pattern.groupindex
+# Pattern.groupindex  #todo
 # A dictionary mapping any symbolic group names defined by (?P<id>) to group numbers. The dictionary is empty
 # if no symbolic groups were used in the pattern.
 
-# Pattern.pattern
+# Pattern.pattern  #todo
 # The pattern string from which the pattern object was compiled.
 # Added support of copy.copy() and copy.deepcopy(). Compiled regular expression objects are considered atomic.
 
 ########################################################################################################################
-#                                                      Спецсимволы
+#                                            Спецсимволы и спецвыражения
 ########################################################################################################################
 
 # '.'
-# Любой символ
+# Любой символ (чтобы включал в себя '\n' надо использовать флаг DOTALL).
 
 # '^'
 # Начало Строки, вместе с флагом MULTILINE также начало подстрочек.
 
 # '$'
-# Matches the end of the string or just before the newline at the end of the string, вместе с флагом MULTILINE
-# также matches before a newline.foo matches both ‘foo’ and ‘foobar’, while the regular expression foo$ matches
-# only ‘foo’. More interestingly, searching for foo.$ in 'foo1\nfoo2\n' matches ‘foo2’ normally,
-# but ‘foo1’ in MULTILINE mode; searching for a single $ in 'foo\n' will find two (empty) matches: one
-# just before the newline, and one at the end of the string.
+# Без флага MULTILINE соответствует концу Строки (в т.ч. с \n), с MULTILINE соответствует ещё и
+# концам подстрочек (т.е. всем \n). Выражение 'foo' соответствует как ‘foo’, так и ‘foobar’, а выражение 'foo$'
+# соответствует только ‘foo’. Ещё пример: выражение 'foo.$' в строке 'foo1\nfoo2\n' без флага MULTILINE соответствует
+# только ‘foo2’, но со флагом MULTILINE ещё и ‘foo1’; выражению '$' в строке 'foo\n' соответствуют два пустых рез-та:
+# один прямо до \n и один в конце строки.
 
 # '*'
 # Предыдущий элемент любое количество раз. Выражение ab* значит "a и сколько угодно (0+) b".
@@ -360,15 +350,15 @@
 # Предыдущий элемент 0 или 1 раз. Выражение 'ab?' значит "a и либо 1 либо 0 раз b", т.е. либо ‘a’ либо ‘ab’.
 
 # '*?', '+?', '??'
-# The '*', '+', and '?' quantifiers are all greedy; they match as much text as possible. Sometimes this behaviour
-# isn’t desired; if the RE <.* > is matched against '<a> b <c>', it will match the entire string, and not just
-# '<a>'. Adding ? after the quantifier makes it perform the match in non - greedy or minimal fashion; as few
-# characters as possible will be matched. Using the RE <.* ? > will match only '<a>'.
+# Операторы '*', '+' и '?' жадные, т.е. соответствуют как можно большему объему текста. Добавлением '?' после
+# этих операторов мы излечиваем их жадность, т.е. они будут соответствовать минимальному объему текста. Например:
+# - выражению <.*> соответствует вся строка '<a> b <c>'.
+# - выражению <.*?> соответствует только '<a>'.
 
-# '*+', '++', '?+'
+# '*+', '++', '?+'  #todo
 # Like the '*', '+', and '?' quantifiers, those where '+' is appended also match as many times as possible.
-# However, unlike the true greedy quantifiers, these do not allow back - tracking when the expression following it
-# fails to match. These are known as possessive quantifiers. For example, a * a will match 'aaaa' because the a * will
+# However, unlike the true greedy quantifiers, these do not allow back-tracking when the expression following it
+# fails to match. For example, a * a will match 'aaaa' because the a * will
 # match all 4 'a' s, but, when the final 'a' is encountered, the expression is backtracked so that in the end
 # the a * ends up matching 3 'a' s total, and the fourth 'a' is matched by the final 'a'. However, when a * +a is used
 # to match 'aaaa', the a * + will match all 4 'a', but when the final 'a' fails to find any more characters to match,
@@ -379,18 +369,16 @@
 # Предыдущий элемент должен быть ровно m число раз. Выражение 'a{6}' значит 'aaaaaa', но не 'aaaaa'.
 
 # '{m, n}'
-# Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many
-# repetitions as possible.For example, a {3, 5} will match from 3 to 5 'a' characters.
-# Omitting m specifies a lower bound of zero, and omitting n specifies an infinite upper bound.
-# As an example, 'a{4, }b' will match 'aaaab' or a thousand 'a' characters followed by a 'b', but not 'aaab'.
-# The comma may not be omitted or the modifier would be confused with the previously described form.
+# Определяет нижнюю и верхнюю границы количества символа до него.
+# Например, выражению 'a{3, 5}' соответствует 'aaa', 'aaaa' и 'aaaaa'. По возможности возвращает как можно большее число
+# символов (жадный).По умолчанию нижняя граница принимается за 0, верхняя за бесконечность.
+# Например, выражению 'a{4, }b' соответствуют как 'aaaab' , так и 1000 букв'a' перед 'b', но не 'aaab'.
 
 # '{m, n}?'
-# Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as few
-# repetitions as possible.This is the non - greedy version of the previous quantifier. For example, on the
-# 6 - character string 'aaaaaa', a {3, 5} will match 5 'a' characters, while a{3, 5}? will only match 3 characters.
+# То же, что и верхнее, но не жадное (довольствуется минимальным совпадением). Разница: выражение a{3,5} в строке
+# 'aaaaaa' вернёт 5 'a', а выражение a{3,5}? вернёт только три 'a'.
 
-# '{m, n}+'
+# '{m, n}+'  #todo
 # Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many
 # repetitions as possible without establishing any backtracking points.This is the possessive version of the
 # quantifier above.For example, on the 6 - character string 'aaaaaa', a {3, 5} + aa attempt to match 5
@@ -404,61 +392,51 @@
 # '[]'
 # Набор символов. В том числе:
 # -Просто допустимые символы (выражению '[amk]' соответствует 'a', 'm' или 'k').
-# -Ranges of characters can be indicated by giving two characters and separating them by a '-', for example [a-z] will
-# match any lowercase ASCII letter, [0-5][0-9] will match all the two-digits numbers from 00 to 59, and [0-9A-Fa-f] will
-# match any hexadecimal digit.If - is escaped (e.g.[a\-z]) or if it’s placed as the first or last character
-# (e.g.[-a] or[a-]), it will match a literal '-'.
 #
-# -Special characters lose their special meaning inside sets. For example, [(+ *)] will match any of the literal
-# characters '(', '+', '*', or ')'.
+# -Диапазоны значений, например, [0-5][0-9] соответствует всем двузначным числам от 00 до 59.
+# Чтобы дефис искался сам по себе, его надо либо экранировать ('[a\-z]') или поместить на первое ('[-a]') или последнее
+# ('[a-]') место в скобках.
 #
-# -Character classes such as \w or \S (defined below) are also accepted inside a set, although the characters they match
-# depends on whether ASCII or LOCALE mode is in force.
+# -NB: внутри [] спец.символы становятся обычными. Например, выражению '[(+ *)]' просто значит "любой из этих символов:
+#  '(', '+', '*' и ')'".
 #
-# -Characters that are not within a range can be matched by complementing the set. If the first character of the set \
-# is '^', all the characters that are not in the set will be matched. For example, [ ^ 5] will match any character
-# except '5', and [ ^ ^] will match any character except '^'. ^ has no special meaning if it’s not the first character \
-# in the set.
+# -Наборы символов типа \w or \S в [] сохраняют своё значение.
 #
-# -To match a literal ']' inside a set, precede it with a backslash, or place it at the beginning of the set.
-# Например, оба выражения '[()[\]{}]' и '[]()[{}]' соответствуют ']', также как и '[', '{', '}', '(' и')'.
+# -Чтобы найти любой символ, кроме определённого (например пятерки), мы ставим перед ним '^' -- [^5].
+# -Если сначала в [] поставить '^' это будет значить "кроме этих символов. '[^5]' значит "что угодно кроме пятерки",
+# а '[^^]' -- "что угодно кроме '^'"
 #
-# -Support of nested sets and set operations as in Unicode Technical Standard No.18 might be added in the future.
-# This would change the syntax, so to facilitate this change a FutureWarning will be raised in ambiguous cases
-# for the time being. That includes sets starting with a literal '[' or containing literal character sequences '--',
-# '&&', '~~', and '||'. To avoid a warning escape them with a backslash.
-#
-# FutureWarning is raised if a character set contains constructs that will change semantically in the future.
+# Чтобы найти соответствие символу ']', мы должны либо его экранировать ('[()[\]{}]'), либо поставить на
+# первое место ('[]()[{}]').
+# Чтобы не было ошибок, надо экранировать '[', '--', '&&', '~~' и '||'.
 
-# '|'
+# '|'  #todo
 # A | B, where A and B can be arbitrary REs, creates a regular expression that will match either A or B.
 # An arbitrary number of REs can be separated by the '|' in this way.
 # Также может использоваться внутри групп.
 # As the target string is scanned, REs separated by '|' are tried from left to right. When one pattern completely
 # matches, that branch is accepted. This means that once A matches, B will not be tested further,
 # even if it would produce a longer overall match. In other words, the '|' operator is never greedy.
-# To match a literal '|', use \|, or enclose it inside a character class , as in '[|]'.
+# To match a literal '|', use \|, or enclose it inside [] , as in '[|]'.
 
-# '(...)'
-# Matches whatever regular expression is inside the parentheses, and indicates the start and end of a group;
-# the contents of a group can be retrieved after a match has been performed, and can be matched later in the string with
-# the \number special sequence, described below. To match the literals '(' or ')', use \( or  \), or enclose them
-# inside a character class: [(], [)].
+# '(...)'  #todo
+# Группа внутри рег. выражения.
+# The contents of a group can be retrieved after a match has been performed, and can be matched later in the string with
+# the \number special sequence.
+# Чтобы найти просто символы '(' или ')', их надо экранировать ('\(' и '\)') или поставить в [] ('[(]' и '[)]').
 
-# '(?...)'
-# This is an extension notation (a '?' following a '(' is not meaningful otherwise). The first character after the '?'
-# determines what the meaning and further syntax of the construct is. Extensions usually do not create a new group;
-# (?P < name >...) is the only exception to this rule. Following are the currently supported extensions.
+#######################################################################################################################
+#                                                       Extensions
+########################################################################################################################
 
 # '(?aiLmsux)'
-# Можно включить флаги в само регулярное выражение: (?флаг(-и)) должны стоять первыми в выражении!
+# Можно включить флаги в само регулярное выражение (напр. для compile): (?флаг(-и)) должны стоять первыми в выражении!
 
-# '(?:...)'
-# A non - capturing version of regular parentheses.- Matches whatever regular expression is inside
-# the parentheses, but the substring matched by the group cannot be retrieved after performing a match or referenced
-# later in the pattern.
+# '(?:...)'  #todo
+# A non-capturing version of regular parentheses. Matches whatever regular expression is inside the parentheses,
+# but the substring matched by the group can't be retrieved after performing a match or referenced later in the pattern.
 
-# '(?aiLmsux-imsx:...)'
+# '(?aiLmsux-imsx:...)'  #todo
 # (Zero or more letters from the set 'a', 'i', 'L', 'm', 's', 'u', 'x', optionally followed by '-' followed by
 # one or more letters from the 'i', 'm', 's', 'x'.)
 # Буквы ставят или убирают флаги re.A, re.I, re.L, re.M, re.S, re.U, and re.X для части выражения.
@@ -466,20 +444,21 @@
 # Вместо этого, when one of them appears in an inline group, it overrides the matching mode in the enclosing group.
 # In Unicode patterns(?a: ...) switches to ASCII - only matching, and (?u:...) switches to Unicode matching(default).
 # In byte pattern(?L: ...) switches to locale depending matching,
-# and (?a:...) switches to ASCII - only matching(default).
+# and (?a:...) switches to ASCII-only matching (default).
 # This override is only in effect for the narrow inline group, and the original matching mode is restored outside of
 # the group.
-# The letters 'a', 'L' and 'u' also can be used in a group.
 
-# '(?>...)'
+# '(?>...)'  #todo
 # Attempts to match... as if it was a separate regular expression, and if successful, continues to match the rest
 # of the pattern following it. If the subsequent pattern fails to match, the stack can only be unwound to a point
 # before the (? >...) because once exited, the expression, known as an atomic group, has thrown away all stack points
-# within itself.Thus, (? >.* ).would never match anything because first the.* would match all characters possible, then,
-# having nothing left to match, the final.would fail to match.Since there are no stack points saved in the Atomic Group,
-# and there is no stack point before it, the entire expression would thus fail to match.
+# within itself.
+# Thus, '(? >.* ).' would never match anything because first the '.*' would match all characters possible, then,
+# having nothing left to match, the final '.' would fail to match.
+# Since there are no stack points saved in the Atomic Group, and there is no stack point before it,
+# the entire expression would thus fail to match.
 
-# '(?P<name>...)'
+# '(?P<name>...)'  #todo
 # Similar to regular parentheses, but the substring matched by the group is accessible via the symbolic group name name.
 # Group names must be valid Python identifiers, and each group name must be defined only once within a RE.
 # A symbolic group is also a numbered group, just as if the group were not named.
@@ -501,26 +480,24 @@
 # \g <quote>
 # \g <1>
 # \1
-#
-# Deprecated: Group name containing characters outside the ASCII range(b'\x00' - b'\x7f') in bytes patterns.
 
-# '(?P=name)'
+# '(?P=name)'  #todo
 # A backreference to a named group; it matches whatever text was matched by the earlier group named name.
 
 # '(?#...)'
 # Комментарий, содержимое внутри скобок игнорируется.
 
 # '(?=...)'
-# Matches if ... matches next, but doesn’t consume any of the string. This is called a lookahead assertion.
-# For example, Isaac(?=Asimov) will match 'Isaac ' only if it’s followed by 'Asimov'.
+# Соответствует только если после выражения идёт ... Например, Isaac(?=Asimov) соответствует 'Isaac' только если
+# после него идёт 'Asimov'.
 
 # '(?!...)'
-# Matches if ... doesn’t match next. This is a negative lookahead assertion. For example, Isaac(?!Asimov) will match
-# 'Isaac ' only if it’s not followed by 'Asimov'.
+# Соответствует, кроме тех случаев, когда сразу после выражения идёт ... . Например, Isaac(?!Asimov) соответствует
+# 'Isaac' только если после него не идёт 'Asimov'.
 
-# '(?<=...)'
+# '(?<=...)'  #todo
 # Matches if the current position in the string is preceded by a match for ... that ends at the current position.
-# This is called a positive lookbehind assertion.(? <= abc)def will find a match in 'abcdef',
+# (? <= abc)def will find a match in 'abcdef',
 # since the lookbehind will back up 3 characters and check if the contained pattern matches. The contained pattern must
 # only match strings of some fixed length, meaning that abc or a | b are allowed, but a * and a {3, 4} are not.
 # Note that patterns which start with positive lookbehind assertions will not match at the beginning of
@@ -535,50 +512,37 @@
 # m = re.search(r'(?<=-)\w+', 'spam-egg')
 # m.group(0)
 # 'egg'
-#
-# Added support for group references of fixed length.
 
-# '(?<!...)'
+# '(?<!...)'  #todo
 # Matches if the current position in the string is not preceded by a match for ....
-# This is called a negative lookbehind assertion. Similar to positive lookbehind assertions,
-# the contained pattern must only match strings of some fixed length.
+# Как и штука выше, the contained pattern must only match strings of some fixed length.
 # Patterns which start with negative lookbehind assertions may match at the beginning of the string being searched.
 
-# '(?(id/name)yes-pattern|no-pattern)'
+# '(?(id/name)yes-pattern|no-pattern)'  #todo
 # Will try to match with yes-pattern if the group with given id or name exists, and with no-pattern if it doesn’t.
 # No-pattern is optional and can be omitted.
 # For example, ( < )?(\w+ @ \w+(?:\.\w +)+)(?(1) > | $) is a poor email matching pattern, which will match with
 # '<user@host.com>' as well as 'user@host.com', but not with '<user@host.com' nor 'user@host.com>'.
-#
-# Deprecated: Group id containing anything except ASCII digits.
-# Group name containing charactersoutside the ASCII range(b'\x00' - b'\x7f') in bytes replacement strings.
-# The special sequences consist of '\' ' \and a character from the list below.
-# If the ordinary character is not an ASCII digit or an ASCII letter, then the resulting RE will match
-# the second character. For example, \$ matches the character '$'.
 
-# '\number'
+# '\number' #todo
 # Matches the contents of the group of the same number. Groups are numbered starting from 1.
 # For example, (.+) \1 matches 'the the' or '55 55', but not 'thethe' (note the space after the group).
 # This special sequence can only be used to match one of the first 99 groups.
-# If the first digit of number is 0, or number is 3 octal digits long, it will not be
-# interpreted as a group match, but as the character with octal value number.
-# Inside the '[' and ']' of a character class, all numeric escapes are treated as characters.
+# Inside the '[' and ']', all numeric escapes are treated as characters.
 
 # '\A' -- непонятно
 # Matches only at the start of the string.
 
 # '\b'
-# Matches the empty string, but only at the beginning or end of a word.
-# A word is defined as a sequence of word characters. Note that formally, \b is defined as the boundary between a
-# \w and a \W character (or vice versa), or between \w and the# beginning / end of the string.
-# This means that r'\bfoo\b' matches 'foo', 'foo.', '(foo)', 'bar foo baz' but not 'foobar' or 'foo3'.
+# Соответствует пустой строке, но только в начале или конце слова.
+# (Слово -- последовательность \w). Формально, \b это граница между '\w' и либо '\W', либо началом/ концом строки.
+# Например, r'\bfoo\b' соответствует 'foo', 'foo.', '(foo)', 'bar foo baz' но не 'foobar' или 'foo3'.
 # При использовании LOCALE-флага границы слов определяются локалью.
 # Inside a character range, \b represents the backspace character, for compatibility with Python’s string literals.
 
 # '\B'
-# Matches the empty string, but only when it is not at the beginning or end of a word. This means that r'py\B' matches
-# 'python', 'py3', 'py2', но не 'py', 'py.' или 'py!'. '\B' is just the opposite of '\b', so word characters in Unicode
-# patterns are Unicode alphanumerics или '_', although this can be changed by using the ASCII flag.
+# «Антоним» '\b'. "Соответствует пустой строке, но только когда она не в начале или в конце слова".
+# Например, r'py\B' соответствует 'python', 'py3', 'py2', но не 'py', 'py.' или 'py!'.
 # При использовании LOCALE-флага границы слов определяются локалью.
 
 # '\d'
@@ -592,14 +556,14 @@
 # Для 8-bit или с ASCII-флагом равно '[ \t\n\r\f\v]'.
 
 # '\S'
-# «Антоним» '\s', включая неразрывные пробелы и т.п. С ASCII-флагом равно [^ \t\n\r\f\v].
+# «Антоним» '\s', включая неразрывные пробелы и т.п. С ASCII-флагом равно '[^ \t\n\r\f\v]'.
 
 # '\w'
-# В Unicode: '_' и всё, что считается буквой в Unicode. С ASCII-флагом только '[a-zA-Z0-9_]'.
+# В Unicode: '_' и всё, что считается буквой/цифрой в Unicode. С ASCII-флагом только '[a-zA-Z0-9_]'.
 # Для 8-bit: как и ASCII равно [a-zA-Z0-9_]. С LOCALE-флагом соответствует '_' и цифрам/буквам локали.
 
 # '\W'
-# «Антоним» '\w', всё, что не считается буквой в Unicode.
+# «Антоним» '\w', всё, что не считается буквой/ цифрой в Unicode.
 # С ASCII-флагом равно '[^a-zA-Z0-9_]'.
 # С LOCALE-флагом всё кроме '_' и цифр/букв локали.
 
