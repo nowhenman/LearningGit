@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9w4&e5=gt-nnwcnnn&csf8hwzoc74hc6f)mu@37d^5$z)&i98#'
+SECRET_KEY = ''
 # RECAPTCHA_PUBLIC_KEY = '6Ldj9VwnAAAAAKuxQ_cu4FA83Bj_yW0IJht_7d6E' # for myfetish.com
 # RECAPTCHA_PRIVATE_KEY = '6Ldj9VwnAAAAAPkt8icqm2_rY9C3HLO9siVv2K7d' # for myfetish.com
 # RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}
