@@ -31,8 +31,8 @@ SECRET_KEY = 'django-insecure-9w4&e5=gt-nnwcnnn&csf8hwzoc74hc6f)mu@37d^5$z)&i98#
 # RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}
 RECAPTCHA_REQUIRED_SCORE = 0.85
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-RECAPTCHA_PUBLIC_KEY = '6LeB_YEnAAAAAE93-rSH4BCctn0rir0NlZFDDOAe'
-RECAPTCHA_PRIVATE_KEY = '6LeB_YEnAAAAAADwSRvJr61C6gq3P1jH34Qn8Qhf'
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = ''
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
