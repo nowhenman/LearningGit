@@ -1,0 +1,23 @@
+{% extends 'main/contents.html' %}
+
+{% block content %}
+
+<p>Homepage loaded successfully</p>
+<hr>
+
+{% comment %}
+{% if user_logged_in %}
+{% endcomment %}
+{% if user.is_authenticated %}
+
+{% comment %}
+    <b>Hello, {{user_logged_in}}!</b>
+{% endcomment %}
+    <b>Hello, {{user.get_username}}!</b>
+    <a href="/logout">Log out here</a>
+{% else %}
+    <div><a href="/signup">Sign up here</a></div>
+    <div><a href="/login">Log in here</a></div>
+{% endif %}
+
+{% endblock %}

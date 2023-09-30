@@ -1,0 +1,28 @@
+{# % include 'main/header.html' % #}
+
+{% extends "main/contents.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container py-5">
+	<h1>Register</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ reg_form|crispy }}
+		{% if messages %}
+		<ul class="list-group">
+			{% for message in messages %}
+			<li{% if message %} class="list-group-item list-group-item-{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<button class="btn btn-primary" type="submit">Register</button>
+	</form>
+	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+</div>
+
+{% endblock %}
+
+{% include "main/footer.html" %}

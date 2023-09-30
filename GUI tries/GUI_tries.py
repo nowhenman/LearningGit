@@ -1,26 +1,31 @@
 import tkinter as tk
+from Calc_logic import *
 
 
 def add_point(event, symb):
-    print(".")
+    pass
 
 
+'''
 def clear_terminal(event):
-    print('clear')
+    # print('clear')
     entry.delete(0, tk.END)
+    # память!
+'''
 
-
+'''
 def ins_terminal(event, x):
-    print('ins_terminal', x)
+    # print('ins_terminal', x)
     entry.insert(tk.END, x)
+    # данные > память > терминал
+'''
 
 
 def make_lambda(func, *args):
     return lambda ev: func(ev, args[0]) if len(args) > 0 else func(ev)
+# ?
 
 
-main_memory = 0  # главная переменная
-temp_memory = 0
 # при нажатии числа (0-9) main_memory *= 10 + число
 # при нажатии стрелки влево main_memory = main_memory // 10 # todo # проверить тот ли операнд (floor или прочее)
 # при нажатии - main_memory копируется в temp_memory, main_memory заменяется на то, что вводится, при наж. = считается
@@ -35,6 +40,8 @@ temp_memory = 0
 # при нажатии % -- понятия не имею что это вообще # todo
 # при нажатии +- main_memory заменяется с + на - и vice versa
 # при нажатии . temp_memory = main_memory, main_memory = ????????????????? # todo
+# chislo = float(chislo)
+# если ,0 то (где?? -- при обновлении Entry!!) убираем
 # при нажатии 1/x надо main_memory = 1/ main_memory
 
 
@@ -57,10 +64,12 @@ history.pack(side=tk.RIGHT)
 menu_bar.pack(fill=tk.X)
 
 terminal = tk.Frame(master=root)
-entry = tk.Entry(master=terminal, width=50)  # 50 symb is less than 320 px
+previous = tk.Label(master=terminal, width=43, relief='solid', borderwidth=1, text=temp_memory, anchor='e')
+previous.pack()
+entry = tk.Entry(master=terminal, width=50, justify='right')  # 50 symb is less than 320 px
 entry.pack()
 terminal.pack()
-entry.focus_set()
+entry.focus_set()[]
 
 ctrl_pad = tk.Frame(master=root)
 for i in buttons:
@@ -73,18 +82,18 @@ buttons_pad = tk.Frame(master=root)
 
 # используй *args!!
 reg_buttons = [
-    {"%": [add_point, 0], "CE": [clear_terminal], "C": [clear_terminal], "<": [add_point, 2]},
-    {"1/x": [add_point, 0], "x^2": [add_point, 1], "x^0.5": [add_point, 2], "/": [add_point, 2]},
-    {"7": [ins_terminal, 7], "8": [ins_terminal, 8], "9": [ins_terminal, 9], "*": [add_point, 2]},
-    {"4": [ins_terminal, 4], "5": [ins_terminal, 5], "6": [ins_terminal, 6], "-": [add_point, 2]},
-    {"1": [ins_terminal, 1], "2": [ins_terminal, 2], "3": [ins_terminal, 3], "+": [add_point, 2]},
-    {"+-": [add_point, 0], "0": [ins_terminal, 0], ",": [add_point, 2], "=": [add_point, 2]}
+    {"%": [percent], "CE": [ce], "C": [c], "<": [backspace]},
+    {"1/x": [one_of_x], "x^2": [x_squared], "x^0.5": [sq_root], "/": [basics, '/']},
+    {"7": [number, '7'], "8": [number, '8'], "9": [number, '9'], "*": [basics, '*']},
+    {"4": [number, '4'], "5": [number, '5'], "6": [number, '6'], "-": [basics, '-']},
+    {"1": [number, '1'], "2": [number, '2'], "3": [number, '3'], "+": [basics, '+']},
+    {"+-": [plus_minus], "0": [number, '0'], ",": [point], "=": [equals]}
 ]
 for i in range(len(reg_buttons)):
     j = 0
     for k in reg_buttons[i]:
         func_list = reg_buttons[i].get(k)
-        butt = tk.Button(master=buttons_pad, text=k, relief=tk.RAISED)
+        butt = tk.Button(master=buttons_pad, text=k, relief=tk.RAISED, width=10, height=2)
         # func_to_call = func_list[0]
         if len(func_list) > 1:
             butt.bind("<Button-1>", make_lambda(func_list[0], func_list[1]))
@@ -96,11 +105,6 @@ for i in range(len(reg_buttons)):
 # If you would like to make it half the size of the window, use width=root.winfo_width / 2,
 # height=winfo_height In the maximum size.
 buttons_pad.pack()
-
-# button1 = tk.Button(text="Нажать!", width=10, height=2)
-# button1.pack()
-# button2 = tk.Button(text="Не нажимать!", width=10, height=2)
-# button2.pack()
 
 # button1.bind("<Button-1>", add_point)
 # button2.bind("<Button-1>", add_point)
